@@ -1,0 +1,482 @@
+@font-face {
+    font-family: 'UTMTime';
+    src: url('/fonts/UTM\ Nyala.ttf');
+}
+
+body {
+    margin: 0;
+    padding: 0;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+}
+
+/* h1 {
+	font-size: 4rem;
+	color: #fff;
+	text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.5);
+} */
+html,
+body,
+.all{
+    box-sizing: border-box;
+    height: 100%;
+    width: 100%;
+    overflow: auto;
+    background: url('/desk.jpg');
+}
+
+.all{
+    box-sizing: border-box;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
+}
+
+.container {
+    display: flex;
+    max-width: 900px;
+    box-sizing: border-box;
+    height: 100%;
+    margin: auto;
+    transform: scale(0.9);
+    border-radius: 10px;
+}
+
+.container {
+    background: radial-gradient(ellipse at bottom, #1b2735 0%, #090a0f 100%), 
+    linear-gradient(to bottom right, #A3C7D6, #3F3B6C);
+    background-origin: padding-box, border-box;
+    background-repeat: no-repeat; /* this is important */
+    border: 15px solid transparent;
+        /* border: 4px solid #9F73AB; */
+    flex-flow: row wrap;
+    opacity: 0.9;
+	/* justify-content: space-between; */
+	/* align-items: center; */
+    justify-content: space-around;
+    align-items: center;
+	text-align: center;
+    box-shadow: 1.3rem 1.3rem 1.3rem rgba(0, 0, 0, 0.5);
+}
+
+.container > * {
+    /* padding: 10px;
+    margin: 10px; */
+    flex: 1 100%;
+    border-radius: 10px;
+}
+
+header{
+    /* background: tomato; */
+    display: flex;
+	height: 120px;
+    padding-bottom: 1.5rem;
+    justify-content: space-around;
+    align-items: center;
+}
+
+.container h1{
+    font-family: "UTMTime";
+    font-size: large;
+    flex-grow: 1;
+    position: relative;
+    font-size: 3.8rem;
+    color: #222;
+}
+
+.container h1::before{
+    content: attr(data-text);
+    position: absolute;
+    color: #fff;
+    width: 100%;
+    overflow: hidden;
+    white-space: nowrap;
+    border-right: 4px solid #fff;
+    animation: textRun 10s linear infinite;
+    filter: drop-shadow(0 0 20px #fff) drop-shadow(0 0 50px #fff) ;
+}
+
+@keyframes textRun{
+    0%, 10%, 100%{
+        width: 0;
+    }
+    70%, 90%{
+        width: 545px;
+    }
+    100%{
+        width: auto;
+    }
+}
+
+.heart{
+    display: flex;
+    height: 70px;
+    width: 70px;
+    background: #f20044;
+    position: relative;
+    transform: rotate(-45deg);
+    box-shadow: -10px 10px 90px #f20044;
+    animation: heart 0.6s linear infinite;
+    top: 30%;
+    right: 5%;
+}
+
+.heart:before{
+    content: '';
+    position: absolute;
+    height: 70px;
+    width: 70px;
+    background: #f20044;
+    top: -50%;
+    border-radius: 50px;
+    box-shadow: 10px 10px 90px #f20044;
+}
+
+@keyframes heart{
+    0%{
+        transform: rotate(-45deg) scale(1.07);
+    }
+    80%{
+        transform: rotate(-45deg) scale(1.0);
+    }
+    100%{
+        transform: rotate(-45deg) scale(0.8);
+    }
+}
+.heart:after{
+    content: '';
+    position: absolute;
+    height: 70px;
+    width: 70px;
+    background: #f20044;
+    right: -50%;
+    border-radius: 50px;
+    box-shadow: 10px 10px 90px #f20044;
+}
+/* ----------------------------------------------------- */
+
+footer {
+    /* background: lightgreen; */
+    height: 50px;
+	/* padding: 2rem; */
+}
+
+
+main {
+	/* flex-grow: 1; */
+    /* background: deepskyblue; */
+    height: 250px;
+    flex-grow: 0;
+    display: flex;
+    justify-content: center;
+    /* align-items: center; */
+}
+
+.music-container{
+    background: dimgrey;
+}
+
+.aside1{
+    justify-content: space-around;
+    display: flex;
+    align-items: center;
+    padding-bottom: 2rem;
+}
+
+@media all and (min-width: 800px){
+    .music-container{
+        flex: 1;
+    }
+
+    .aside1{
+        order: 1;
+    }
+
+    main{
+        order: 2;
+    }
+
+    .music-container{
+        order: 3;
+    }
+}
+
+@media all and (min-width: 600px) {
+    main{
+        flex: 1;
+    }
+}
+
+
+/* AVATAR  ------------------------------------------------
+    ! AVATAR
+*/ 
+
+.aside .box{
+    display: flex;
+    position: relative;
+    width: 300px;
+    height: 300px;
+    background: rgba(0, 0, 0, 0.5);
+    border-radius: 50%;
+    overflow: hidden;
+}
+
+.aside .box::before{
+    content: '';
+    position: absolute;
+    inset: -10px 140px;
+    background: linear-gradient(315deg,#00ccff, #d400d4);
+    transition: 0.5s;
+    animation: avatarRun 4s linear infinite;
+}
+
+.aside .box:hover::before{
+    inset: -20px 0px;
+}
+
+@keyframes avatarRun {
+    0%{
+        transform: rotate(0deg);
+    }
+    100%{
+        transform: rotate(360deg);
+    }
+}
+
+.aside .box::after{
+    content: '';
+    position: absolute;
+    inset: 6px;
+    background: #0b1522;
+    border-radius: 50%;
+    z-index: 1;
+}
+
+.aside .box .content{
+    position: absolute;
+    inset: 30px;
+    border: 6px solid #070a1c;
+    z-index: 3;
+    border-radius: 50%;
+    overflow: hidden;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.aside .box .content img{
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: 0.5s;
+    pointer-events: none;
+    z-index: 3;
+}
+
+.content h2{
+    position: relative;
+    font-size: 1.5em;
+    text-align: center;
+    color: #fff;
+    font-weight: 600;
+    letter-spacing: 0.05em;
+    text-transform: uppercase;
+}
+
+.box:hover .content img{
+    opacity: 0;
+}
+
+.message{
+    font-family: "UTMTime";
+    font-size: 25px;
+	margin-top: 1rem;
+    width: 400px;
+}
+
+.typed-text {
+	display: inline-block;
+	font-size: 1.5rem;
+	font-weight: bold;
+	color: #fff;
+	text-shadow: 1px 1px 5px rgba(0, 0, 0, 0.5);
+	animation: typing 3s steps(40) 1s 1 normal both;
+}
+
+/* MUSIC  ------------------------------------------------
+    ! MUSIC
+*/
+.music-container {
+    background-color: #fff;
+    border-radius: 15px;
+    box-shadow: 0 20px 20px 0 rgba(252, 169, 169, 0.6);
+    display: flex;
+    padding: 20px 30px;
+    position: relative;
+    margin: 100px 0;
+    z-index: 10;
+    margin-left: 2rem;
+    margin-right: 2rem;
+}
+  
+  .img-container {
+    position: relative;
+    width: 110px;
+  }
+  
+  .img-container::after {
+    content: '';
+    background-color: #fff;
+    border-radius: 50%;
+    position: absolute;
+    bottom: 100%;
+    left: 50%;
+    width: 20px;
+    height: 20px;
+    transform: translate(-50%, 50%);
+  }
+  
+  .img-container img {
+    border-radius: 50%;
+    object-fit: cover;
+    height: 110px;
+    width: inherit;
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    animation: rotate 3s linear infinite;
+  
+    animation-play-state: paused;
+  }
+  
+  .music-container.play .img-container img {
+    animation-play-state: running;
+  }
+  
+  @keyframes rotate {
+    from {
+      transform: rotate(0deg);
+    }
+  
+    to {
+      transform: rotate(360deg);
+    }
+  }
+  
+  .navigation {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 1;
+  }
+  
+  .action-btn {
+    background-color: #fff;
+    border: 0;
+    color: #dfdbdf;
+    font-size: 20px;
+    cursor: pointer;
+    padding: 10px;
+    margin: 0 20px;
+  }
+  
+  .action-btn.action-btn-big {
+    color: #cdc2d0;
+    font-size: 30px;
+  }
+  
+  .action-btn:focus {
+    outline: 0;
+  }
+  
+  .music-info {
+    background-color: rgba(255, 255, 255, 0.5);
+    border-radius: 15px 15px 0 0;
+    position: absolute;
+    top: 0;
+    left: 20px;
+    width: calc(100% - 40px);
+    padding-bottom: 10px;
+    opacity: 0;
+    transform: translateY(0%);
+    transition: transform 0.3s ease-in, opacity 0.3s ease-in;
+    z-index: 0;
+  }
+  
+  .music-container.play .music-info {
+    opacity: 1;
+    transform: translateY(-100%);
+  }
+  
+  .music-info h4 {
+    margin: 0;
+    font-family: "UTMTime";
+    color: #fe8daa;
+    font-weight: bold;
+  }
+  
+  .progress-container {
+    background: #fff;
+    border-radius: 5px;
+    cursor: pointer;
+    margin: 10px 0;
+    height: 4px;
+    width: 100%;
+  }
+  
+  .progress {
+    background-color: #fe8daa;
+    border-radius: 5px;
+    height: 100%;
+    width: 0%;
+    transition: width 0.1s linear;
+  }
+/* ---------------------------------------------------------- */
+
+/* Button Click 
+--------------------------------------------------
+*/
+
+#click{
+    position: relative;
+    padding: 15px 30px;
+    color: #2196f3;
+    text-transform: uppercase;
+    letter-spacing: 4px;
+    text-decoration: none;
+    font-size: 30px;
+    overflow: hidden;
+    transform: 0.2s;
+}
+
+a:hover{
+    color: #255784 !important;
+    background: #2196f3;
+    box-shadow: 0 0 10px #2196f3, 0 0 40px #2196f3, 0 0 80px #2196f3;
+}
+
+/* --------------------------------------------------- */
+
+.music-container p { 
+    margin-left: 100px;
+    font-family: "UTMTime";
+}
+
+@keyframes typing {
+	from { width: 0 }
+	to { width: 100% }
+}
+
+@keyframes blink {
+	0%, 100% { opacity: 1 }
+	50% { opacity: 0 }
+}
+
+@media only screen and (max-width: 550px) {
+    .heart,
+    header {
+        display: none !important;
+    }
+}
