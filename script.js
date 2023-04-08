@@ -18,7 +18,7 @@ const currTime = document.querySelector('#currTime');
 const durTime = document.querySelector('#durTime');
 
 // Song titles
-const songs = ['hey', 'summer'];
+const songs = ['Hẹn Ước Bồ Công Anh','summer'];
 
 // Keep track of song
 let songIndex = 0;
@@ -28,7 +28,7 @@ loadSong(songs[songIndex]);
 
 // Update song details
 function loadSong(song) {
-  title.innerText = song;
+  title.innerText = "Bài hát: " + song;
   audio.src = `music/${song}.mp3`;
   cover.src = `images/${song}.jpg`;
 }
@@ -160,7 +160,6 @@ function DurTime (e) {
 
 startBtn.addEventListener('click', () => {
     playSong();
-    console.log("OK")
 })
 
 playBtn.addEventListener('click', () => {
