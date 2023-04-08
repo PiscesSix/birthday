@@ -1,6 +1,6 @@
 @font-face {
     font-family: 'UTMTime';
-    src: url('/fonts/UTM\ Nyala.ttf');
+    src: url('./fonts/UTM\ Nyala.ttf');
 }
 
 body {
